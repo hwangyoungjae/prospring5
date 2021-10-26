@@ -1,5 +1,5 @@
 subprojects {
-    group 'org.youngjae.prospring5.ch02'
+    group 'org.youngjae.prospring5.ch03'
     apply plugin: 'java'
 
     /*Task that copies all the dependencies under build/libs */

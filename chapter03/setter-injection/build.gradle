@@ -1,0 +1,14 @@
+dependencies {
+    implementation project(':chapter02:hello-world')
+    implementation spring.context, misc.slf4jJcl, misc.logback
+    testImplementation testing.junit
+}
+
+jar {
+    manifest {
+        attributes("Created-By"      : "Youngjae Hwang",
+                "Specification-Title": "Pro Spring 5",
+                "Main-Class"         : "org.youngjae.prospring5.ch3.DeclareSpringComponents",
+                "Class-Path"         : configurations.matching { it.getName() }.join(' '))
+    }
+}
