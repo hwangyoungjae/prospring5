@@ -1,0 +1,10 @@
+jar {
+    manifest {
+        attributes(
+                "Created-By": "Youngjae Hwang",
+                "Specification-Title": "Pro Spring 5",
+                "Main-Class": "org.youngjae.prospring5.ch2.HelloWorldSpringDI",
+                "Class-Path": configurations.matching { it.getName() }.join(' ')
+        )
+    }
+}

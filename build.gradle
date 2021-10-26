@@ -1,0 +1,47 @@
+ext {
+    // 스프링 라이브러리
+    springVersion = '5.3.11'
+    bootVersion = '2.5.5'
+
+    // 로그 라이브러리
+    slf4jVersion = '1.7.32'
+    logbackVersion = '1.2.6'
+
+    // 테스트 라이브러리
+    junitVersion = '4.13.2'
+
+    spring = [
+            context: "org.springframework:spring-context:$springVersion",
+    ]
+
+    testing = [
+            junit: "junit:junit:$junitVersion",
+    ]
+
+    misc = [
+            slf4jJcl: "org.slf4j:jcl-over-slf4j:$slf4jVersion",
+            logback : "ch.qos.logback:logback-classic:$logbackVersion",
+    ]
+}
+
+subprojects {
+    version '5.0-SNAPSHOT'
+
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven { url "https://repo.spring.io/ui/native/release" }
+        maven { url "https://repo.spring.io/ui/native/snapshot" }
+        maven { url "https://repo.spring.io/libs-snapshot" }
+        maven { url "https://repo.spring.io/ui/native/milestone" }
+        maven { url "https://repo.spring.io/libs-milestone" }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+wrapper {
+    distributionUrl = distributionUrl.replace("bin", "all")
+}
